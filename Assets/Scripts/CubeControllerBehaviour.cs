@@ -15,6 +15,8 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable
 
     [Header("Paths")]
     public CinemachineDollyCart _stageDollyCart;
+    public PathCreator _somersultPath;
+    public PathCreator _uTurnPath;
 
     [Header("References")]
     public Transform _playerModel;
@@ -25,6 +27,8 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable
     public Transform _arrow;
 
     private float forwardSpeed;
+    private float distanceAcrobaticPath;
+    private float smoothAcrobatic;
     private float delayDamage;
 
     Quaternion deltaRotation;
@@ -40,6 +44,14 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable
 
         _stageDollyCart.m_Speed = data.trackSpeed;
         forwardSpeed = data.allRangeSpeed;
+
+        data.onBarrelRoll += (int axis) => StartCoroutine(BarrelRoll(axis));
+        /*
+        data.onBoost += (bool state) => Boost(state);
+        data.onBreak += (bool state) => Break(state);
+        */
+        data.onSomersult += () => DOAcrobatic(AcrobaticState.Somersult, null, 50, false);
+        data.onUTurn += () => DOAcrobatic(AcrobaticState.UTurn, _playerTransform, 50, false);
     }
 
     void FixedUpdate()
@@ -56,13 +68,15 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable
 
         // will need to update condition
         if (data.acrobaticState == AcrobaticState.None)
-            ClampPosition(_cubeTransform, CameraManagerAlan.mainCamera);
+            ClampPosition(_cubeTransform, CameraManager.mainCamera);
         else
             PathUpdate(data.acrobaticState);
 
         if (data.shipState == ShipState.TrackMode || (data.shipState == ShipState.AllRangeMode && !data.physicMovement))
             LookRotation(_cubeTransform, _aimTarget);
     }
+
+    #region Movement Calculations
 
     // local movement x and y transforms
     void LocalMove()
@@ -152,16 +166,130 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable
         model.localEulerAngles = new Vector3(targetEulerAngle.x, targetEulerAngle.y, Mathf.LerpAngle(targetEulerAngle.z, -smoothLocalSpeed.x * data.horizontalLeanLimit, data.leanSpeed));
     }
 
-    /*
-     *
-     *
-     *
-     *
-     */
+    #endregion
+
+    #region Acrobatic Movement
+    IEnumerator BarrelRoll(int axis)
+    {
+        if (data.leanState != LeanState.None)
+            yield break;
+
+        _armatureModel.DOLocalRotate(new Vector3(0, 0, 350 * -axis), data.barrelRollSpeed, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
+
+        // AudioManager thing...
+
+        data.leanState = LeanState.BarrelRoll;
+        yield return new WaitWhile(() => DOTween.IsTweening(_armatureModel));
+        data.leanAxisInput = 0;
+        data.leanState = LeanState.None;
+    }
+
+    IEnumerator Somersult()
+    {
+        ClearBuffs();
+        _arrow.gameObject.SetActive(false);
+
+        data.OnInputActive(false);
+        data.acrobaticState = AcrobaticState.Somersult;
+
+        CameraManager.SetLiveCamera("Somersult VCam");
+        // Audio manager...
+
+        _cubeTransform.parent = _playerTransform.parent;
+        _somersultPath.transform.position = _cubeTransform.position;
+
+        if (data.shipState == ShipState.AllRangeMode)
+        {
+            forwardSpeed = 0;
+            _somersultPath.transform.rotation = _cubeTransform.rotation;
+
+            _playerTransform.DOLocalRotate(_cubeTransform.eulerAngles, .25f);
+            _playerTransform.DOMove(_somersultPath.path.GetPointAtDistance(_somersultPath.path.length), .25f);
+        }
+        else if (data.shipState == ShipState.TrackMode)
+        {
+            _stageDollyCart.m_Speed = 0;
+            _somersultPath.transform.rotation = _playerTransform.rotation;
+        }
+
+        DOVirtual.Float(0, 2000, .5f, x => smoothAcrobatic = x);
+
+        yield return new WaitWhile(() => distanceAcrobaticPath < _somersultPath.path.length);
+
+        _cubeTransform.parent = _playerTransform;
+        distanceAcrobaticPath = 0;
+
+        if (data.shipState == ShipState.TrackMode)
+        {
+            _stageDollyCart.m_Speed = data.trackSpeed;
+            CameraManager.SetLiveCamera("Track VCam");
+        }
+
+        if (data.shipState == ShipState.AllRangeMode)
+        {
+            _playerTransform.DOLocalRotate(new Vector3(0, _playerTransform.localEulerAngles.y, 0), .25f);
+            forwardSpeed = data.allRangeSpeed;
+            CameraManager.SetLiveCamera("All Range VCam");
+        }
+
+        _armatureModel.localEulerAngles = Vector3.zero;
+        _arrow.gameObject.SetActive(true);
+
+        data.OnInputActive(true);
+        data.acrobaticState = AcrobaticState.None;
+    }
+
+    /*IEnumerator UTurn(Transform direction)
+    {
+        
+    }*/
+
     void PathUpdate(AcrobaticState state)
     {
-        Debug.Log("PathUpdate");
+        if (state == AcrobaticState.Somersult)
+        {
+            distanceAcrobaticPath += Time.deltaTime * data.acrobaticSomersultSpeed;
+
+            _cubeTransform.position = _somersultPath.path.GetPointAtDistance(distanceAcrobaticPath, EndOfPathInstruction.Stop);
+            _armatureModel.rotation = Quaternion.RotateTowards(_armatureModel.rotation, _somersultPath.path.GetRotationAtDistance(distanceAcrobaticPath), smoothAcrobatic * Time.deltaTime);
+        }
+        else if (state == AcrobaticState.UTurn)
+        {
+            distanceAcrobaticPath += Time.deltaTime * data.acrobaticUTurnSpeed;
+
+            _cubeTransform.position = _uTurnPath.path.GetPointAtDistance(distanceAcrobaticPath, EndOfPathInstruction.Stop);
+            _armatureModel.rotation = Quaternion.RotateTowards(_armatureModel.rotation, _uTurnPath.path.GetRotationAtDistance(distanceAcrobaticPath), smoothAcrobatic * Time.deltaTime);
+        }
     }
+
+    void DOAcrobatic(AcrobaticState acrobaticState, Transform direction, int amountCost, bool forced)
+    {
+        if (!forced && amountCost > data.buffAmount)
+            return;
+
+        if (acrobaticState == AcrobaticState.Somersult)
+            StartCoroutine(Somersult());
+        else if (acrobaticState == AcrobaticState.UTurn && data.shipState == ShipState.AllRangeMode)
+            // TODO: implement uturn
+            // StartCoroutine(Uturn(direction));
+            Debug.Log("uturn stuff");
+        else
+            return;
+
+        data.buffAmount -= amountCost;
+
+        if (forced)
+            data.buffAmount = 0;
+    }
+    #endregion
+
+    #region Buffs
+    public void ClearBuffs()
+    {
+        /*Boost(false);
+        Break(false);*/
+    }
+    #endregion
 
     public void SetDamage(int damage)
     {
@@ -218,8 +346,8 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable
 
         // yield return new WaitUntil(() => !__allRangeAnimation.isPlaying)
 
-        CameraManagerAlan.SetUpdateMethod(CinemachineBrain.UpdateMethod.FixedUpdate);
-        CameraManagerAlan.SetLiveCamera("All Range VCam");
+        CameraManager.SetUpdateMethod(CinemachineBrain.UpdateMethod.FixedUpdate);
+        CameraManager.SetLiveCamera("All Range VCam");
         // CameraManager.SetDeadZoneComposer("Acrobatic VCam", 0, 0);
 
         yield return new WaitForSeconds(.5f);

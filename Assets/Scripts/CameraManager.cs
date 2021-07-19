@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManagerAlan : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
     public static Camera mainCamera;
     static CinemachineBrain brainVCam;

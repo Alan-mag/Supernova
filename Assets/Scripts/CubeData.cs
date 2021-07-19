@@ -40,19 +40,47 @@ public class CubeData : ScriptableObject
     [Range(0, 1)]
     public float leanSpeed;
 
+    [Range(0, 1)]
+    public float barrelRollSpeed;
+
+    [Range(0, 100)]
+    public float acrobaticSomersultSpeed;
+
+    [Range(0, 100)]
+    public float acrobaticUTurnSpeed;
+
     [Header("Inputs")]
     [ReadOnly] public Vector2 movementInput;
     [ReadOnly] public int leanAxisInput;
     [ReadOnly] public int lifeAmount;
+    [ReadOnly] public float buffAmount;
     [ReadOnly] public bool isDamageEffect;
 
     [Header("State")]
     [ReadOnly] public ShipState shipState;
     [ReadOnly] public AcrobaticState acrobaticState;
     [ReadOnly] public LeanState leanState;
+    [ReadOnly] public BuffState buffState;
     [ReadOnly] public WeaponState weaponState;
     [ReadOnly] public ChargeWeaponState chargeWeaponState;
     [ReadOnly] public EnemyDetectionState enemyDetectionState;
+
+    #region Movement Actions
+    public event Action<int> onBarrelRoll;
+    public void OnBarrelRoll(int axis) { onBarrelRoll?.Invoke(axis);  }
+
+    public event Action<bool> onBoost;
+    public void OnBoost(bool state) { onBoost?.Invoke(state); }
+
+    public event Action<bool> onBreak;
+    public void OnBreak(bool state) { onBreak?.Invoke(state); }
+
+    public event Action onSomersult;
+    public void OnSomersult() { onSomersult?.Invoke(); }
+
+    public event Action onUTurn;
+    public void OnUTurn() { onUTurn?.Invoke(); }
+    #endregion
 
 
     #region Weapon Actions
@@ -83,14 +111,17 @@ public class CubeData : ScriptableObject
         movementInput = newMovement;
     }
 
-    public void UpdateStateInput(ShipState newShipState, LeanState newLeanState)
+    public void UpdateStateInput(ShipState newShipState, LeanState newLeanState, BuffState newBuffState, AcrobaticState newAcrobaticState)
     {
         shipState = newShipState;
         leanState = newLeanState;
+        buffState = newBuffState;
+        acrobaticState = newAcrobaticState;
     }
 }
 
 public enum ShipState { AllRangeMode, TrackMode }
+public enum BuffState { None, Boost, Break }
 public enum AcrobaticState { None, Somersult, UTurn };
 public enum LeanState { None, LeftLean, RightLean, BarrelRoll }
 public enum WeaponState { LvOne, LvTwo, LvThree }

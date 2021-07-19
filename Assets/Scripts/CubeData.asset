@@ -23,11 +23,18 @@ MonoBehaviour:
   leanAngle: 50
   horizontalLeanLimit: 35
   leanSpeed: 0.1
+  barrelRollSpeed: 0.3
+  acrobaticSomersultSpeed: 45
+  acrobaticUTurnSpeed: 35
   movementInput: {x: 0, y: 0}
   leanAxisInput: 0
-  shipState: 0
+  lifeAmount: 100
+  buffAmount: 50
+  isDamageEffect: 1
+  shipState: 1
   acrobaticState: 0
   leanState: 0
+  buffState: 0
   weaponState: 0
   chargeWeaponState: 0
   enemyDetectionState: 0

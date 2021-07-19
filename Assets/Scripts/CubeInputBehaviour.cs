@@ -16,12 +16,17 @@ public class CubeInputBehaviour : MonoBehaviour
 
     void Awake()
     {
+        // Default Settings
         cubeData.shipState = ShipState.TrackMode;
         cubeData.acrobaticState = AcrobaticState.None;
+        cubeData.buffState = BuffState.None;
         cubeData.leanState = LeanState.None;
         cubeData.chargeWeaponState = ChargeWeaponState.None;
         cubeData.enemyDetectionState = EnemyDetectionState.None;
         cubeData.weaponState = WeaponState.LvOne;
+
+        cubeData.buffAmount = 100;
+        cubeData.lifeAmount = 100;
 
         cubeData.onInputActive += (bool state) => { if (state) cubeInput.ActivateInput(); else cubeInput.DeactivateInput(); };
     }
@@ -61,6 +66,12 @@ public class CubeInputBehaviour : MonoBehaviour
     {
         if (value.performed)
             cubeData.OnFireLaser();
+    }
+
+    public void OnSomersult(InputAction.CallbackContext value)
+    {
+        if (value.performed)
+            cubeData.OnSomersult();
     }
 
     void UpdateData() => cubeData.UpdateInputData(inputValue);

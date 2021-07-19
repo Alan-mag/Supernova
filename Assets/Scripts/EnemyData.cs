@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyDataCap", menuName = "ScriptableObjects/Practice1/EnemyDataCap")]
-public class EnemyDataCap : ScriptableObject
+[CreateAssetMenu(fileName = "EnemyDataCap", menuName = "ScriptableObjects/Practice1/EnemyData")]
+public class EnemyData : ScriptableObject
 {
     [Header("Parameters")]
     public EnemyStateCap state;
@@ -15,6 +15,10 @@ public class EnemyDataCap : ScriptableObject
     public int scoreValue;
     public int damageToPlayer;
 
+    [Header("Weapons")]
+    public float attackRange;
+
+    [Header("Other")]
     [ReadOnly] public EnemyBehaviourCap behaviour;
     [ReadOnly] public int lifeAmount;
 }

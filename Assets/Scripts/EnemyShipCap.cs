@@ -7,7 +7,7 @@ using UnityEngine.VFX;
 public class EnemyShipCap : MonoBehaviour, IDamagable
 {
     [Header("Enemy Data")]
-    public EnemyDataCap data;
+    public EnemyData data;
 
     [Header("Sounds")]
     [SerializeField] EffectsSounds _hitSound;

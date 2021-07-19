@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Somersult",
+                    "type": "Button",
+                    "id": "86d2c565-471b-435e-b445-d9168611a327",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -212,6 +220,28 @@
                     "processors": "",
                     "groups": "CubeControllerInput",
                     "action": "Right Lean",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "305383c8-4244-48c1-a4fb-dabdf008fc2e",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "CubeControllerInput",
+                    "action": "Somersult",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3daf06b4-3f37-4b5f-b93a-f1253b327f88",
+                    "path": "<Keyboard>/#(C)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "CubeKeyboardInput",
+                    "action": "Somersult",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

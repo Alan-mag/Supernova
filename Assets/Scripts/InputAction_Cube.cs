@@ -49,6 +49,14 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Somersult"",
+                    ""type"": ""Button"",
+                    ""id"": ""86d2c565-471b-435e-b445-d9168611a327"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -227,6 +235,28 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
                     ""action"": ""Right Lean"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""305383c8-4244-48c1-a4fb-dabdf008fc2e"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""CubeControllerInput"",
+                    ""action"": ""Somersult"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3daf06b4-3f37-4b5f-b93a-f1253b327f88"",
+                    ""path"": ""<Keyboard>/#(C)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""CubeKeyboardInput"",
+                    ""action"": ""Somersult"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -262,6 +292,7 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
         m_CubeController_RightLean = m_CubeController.FindAction("Right Lean", throwIfNotFound: true);
         m_CubeController_LeftLean = m_CubeController.FindAction("Left Lean", throwIfNotFound: true);
         m_CubeController_Fire = m_CubeController.FindAction("Fire", throwIfNotFound: true);
+        m_CubeController_Somersult = m_CubeController.FindAction("Somersult", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -315,6 +346,7 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
     private readonly InputAction m_CubeController_RightLean;
     private readonly InputAction m_CubeController_LeftLean;
     private readonly InputAction m_CubeController_Fire;
+    private readonly InputAction m_CubeController_Somersult;
     public struct CubeControllerActions
     {
         private @InputAction_Cube m_Wrapper;
@@ -323,6 +355,7 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
         public InputAction @RightLean => m_Wrapper.m_CubeController_RightLean;
         public InputAction @LeftLean => m_Wrapper.m_CubeController_LeftLean;
         public InputAction @Fire => m_Wrapper.m_CubeController_Fire;
+        public InputAction @Somersult => m_Wrapper.m_CubeController_Somersult;
         public InputActionMap Get() { return m_Wrapper.m_CubeController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -344,6 +377,9 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
                 @Fire.started -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnFire;
+                @Somersult.started -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnSomersult;
+                @Somersult.performed -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnSomersult;
+                @Somersult.canceled -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnSomersult;
             }
             m_Wrapper.m_CubeControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -360,6 +396,9 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @Somersult.started += instance.OnSomersult;
+                @Somersult.performed += instance.OnSomersult;
+                @Somersult.canceled += instance.OnSomersult;
             }
         }
     }
@@ -388,5 +427,6 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
         void OnRightLean(InputAction.CallbackContext context);
         void OnLeftLean(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnSomersult(InputAction.CallbackContext context);
     }
 }

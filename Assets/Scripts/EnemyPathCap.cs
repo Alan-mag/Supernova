@@ -6,7 +6,7 @@ using Cinemachine;
 public class EnemyPathCap : MonoBehaviour
 {
     [Header("Data")]
-    public EnemyDataCap data;
+    public EnemyData data;
 
     CinemachineDollyCart _dollyCart;
     CinemachineSmoothPath _path;
