@@ -9,6 +9,8 @@ TagManager:
   - Track VCam
   - Somersult VCam
   - Enemy
+  - Environment
+  - Terrain
   layers:
   - Default
   - TransparentFX
@@ -20,9 +22,9 @@ TagManager:
   - 
   - 
   - Player
-  - 
-  - 
-  - 
+  - Enemy
+  - Environment
+  - Terrain
   - 
   - 
   - 

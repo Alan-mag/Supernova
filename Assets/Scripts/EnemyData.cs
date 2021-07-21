@@ -17,6 +17,7 @@ public class EnemyData : ScriptableObject
 
     [Header("Weapons")]
     public float attackRange;
+    public int weaponDamage;
 
     [Header("Other")]
     [ReadOnly] public EnemyBehaviourCap behaviour;

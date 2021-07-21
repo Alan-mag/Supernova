@@ -311,7 +311,10 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable
             _playerTransform.DOMove(_playerTransform.position - (_playerTransform.forward * backwardForce), .25f);
 
         if (data.lifeAmount <= 0)
+        {
             Debug.Log("Destroyed");
+            Destroy(this.gameObject);
+        }
 
         Debug.Log("BoxWing Life (" + data.lifeAmount + ")");
         // AudioManager.Instance.PlaySFX(AudioEffectsHandler.GetAudioClip(EffectsSounds.DamageObstacle));
@@ -358,4 +361,15 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable
 
         yield break;
     }
+
+    #region Collisions
+    void OnParticleCollision(GameObject other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Destroy(other);
+            SetDamage(10); // TODO: get this damage amount from enemy data
+        }
+    }
+    #endregion
 }

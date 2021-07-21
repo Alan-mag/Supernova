@@ -19,5 +19,6 @@ MonoBehaviour:
   scoreValue: 1
   damageToPlayer: 10
   attackRange: 50
+  weaponDamage: 5
   behaviour: 0
-  lifeAmount: 10
+  lifeAmount: -10

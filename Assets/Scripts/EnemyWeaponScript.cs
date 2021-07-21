@@ -22,12 +22,13 @@ public class EnemyWeaponScript : MonoBehaviour
     // if state changes and the enemy is too far away to fire -- stop running coroutine
     void Update()
     {
-        if (target && CheckWithinRange(gameObject.transform.position, target.transform.position))
+        if (target && projectileParticle &&  CheckWithinRange(gameObject.transform.position, target.transform.position))
         {
             FireWeapon();
         } else
         {
-            projectileParticle.Stop();
+            if (projectileParticle)
+                projectileParticle.Stop();
         }
     }
 
