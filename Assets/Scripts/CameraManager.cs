@@ -14,7 +14,7 @@ public class CameraManager : MonoBehaviour
     {
         mainCamera = GameObject.FindGameObjectWithTag("BrainCamera").GetComponent<Camera>();
         brainVCam = mainCamera.GetComponent<CinemachineBrain>();
-        vCams = FindObjectsOfType<CinemachineVirtualCamera>();
+        vCams = FindObjectsOfType<CinemachineVirtualCamera>(); // todo: ask owen about stuff
     }
 
     public static void SetUpdateMethod(CinemachineBrain.UpdateMethod method)
