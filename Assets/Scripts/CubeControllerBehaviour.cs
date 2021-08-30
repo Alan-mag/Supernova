@@ -5,7 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeControllerBehaviour : MonoBehaviour, IDamagable
+// IUpdateItem is in UIBehaviour in starfox ex.
+public class CubeControllerBehaviour : MonoBehaviour, IDamagable, IUpgradeItem
 {
     [Header("Cube Settings")]
     public CubeData data;
@@ -371,5 +372,24 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable
             SetDamage(10); // TODO: get this damage amount from enemy data
         }
     }
+    #endregion
+
+    void Heal(int value)
+    {
+        int newHP = data.lifeAmount + value;
+        if (newHP > 100)
+            data.lifeAmount = 100;
+        else
+            data.lifeAmount = newHP;
+
+        // UpdateHPImage();
+    }
+
+    #region Interfaces
+    public void UpgradeSmartBomb() => Debug.Log("Smart Bomb Upgrade");
+
+    public void HealItem(int healValue) => Heal(healValue);
+
+    public void AddLife() => Debug.Log("AddLife");
     #endregion
 }

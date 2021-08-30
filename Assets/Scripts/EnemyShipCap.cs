@@ -63,9 +63,11 @@ public class EnemyShipCap : MonoBehaviour, IDamagable
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.transform.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
+        {
             Debug.Log("Hit Enemy ship - ouch");
+            Debug.Log(collision);
             collision.transform.GetComponent<IDamagable>().SetDamage(data.damageToPlayer);
+        }
     }
 }

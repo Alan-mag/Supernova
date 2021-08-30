@@ -11,7 +11,7 @@ public interface IUpgradeItem
 {
     void UpgradeSmartBomb();
 
-    void HealRing(int healValue, bool isGoldRing);
+    void HealItem(int healValue);
 
     void AddLife();
 }

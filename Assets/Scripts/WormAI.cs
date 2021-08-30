@@ -120,21 +120,21 @@ public class WormAI : MonoBehaviour
 
         path.m_Waypoints[0].position = startPosition + (Vector3.down * 15);
         path.m_Waypoints[1].position = playerPosition + (Vector3.up * 10);
-        path.m_Waypoints[2].position = endPosition + (Vector3.down * 45);
+        path.m_Waypoints[2].position = endPosition + (Vector3.down * 35);
 
         path.InvalidateDistanceCache();
         cart.m_Position = 0;
 
         //speed
-        cart.m_Speed = cart.m_Path.PathLength / 1500;
+        cart.m_Speed = cart.m_Path.PathLength / 750;
 
         OnBossReveal.Invoke(true);
 
     }
 
-    private void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision collision)
     {
-        print("collision enter");
+        Debug.Log("collision enter boss");
         /*if (other.transform.TryGetComponent(out Damageable damageable))
         {
             print("hit ship");
