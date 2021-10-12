@@ -29,6 +29,10 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Managers/PersistentManagers.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 9934077cd1d98d745863ea5e316c134f
+    m_Address: Assets/Scenes/Island.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a34ecab084bb2794ca64861d1a4551be, type: 2}
   m_SchemaSet:

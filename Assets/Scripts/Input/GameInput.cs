@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/InputAction_Cube.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/GameInput.inputactions'
 
 using System;
 using System.Collections;
@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @InputAction_Cube : IInputActionCollection, IDisposable
+public class @GameInput : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @InputAction_Cube()
+    public @GameInput()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""InputAction_Cube"",
+    ""name"": ""GameInput"",
     ""maps"": [
         {
             ""name"": ""CubeController"",
@@ -1224,8 +1224,8 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
     private readonly InputAction m_CubeController_Somersult;
     public struct CubeControllerActions
     {
-        private @InputAction_Cube m_Wrapper;
-        public CubeControllerActions(@InputAction_Cube wrapper) { m_Wrapper = wrapper; }
+        private @GameInput m_Wrapper;
+        public CubeControllerActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_CubeController_Movement;
         public InputAction @RightLean => m_Wrapper.m_CubeController_RightLean;
         public InputAction @LeftLean => m_Wrapper.m_CubeController_LeftLean;
@@ -1297,8 +1297,8 @@ public class @InputAction_Cube : IInputActionCollection, IDisposable
     private readonly InputAction m_Menus_CloseInventory;
     public struct MenusActions
     {
-        private @InputAction_Cube m_Wrapper;
-        public MenusActions(@InputAction_Cube wrapper) { m_Wrapper = wrapper; }
+        private @GameInput m_Wrapper;
+        public MenusActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveSelection => m_Wrapper.m_Menus_MoveSelection;
         public InputAction @Navigate => m_Wrapper.m_Menus_Navigate;
         public InputAction @Submit => m_Wrapper.m_Menus_Submit;
