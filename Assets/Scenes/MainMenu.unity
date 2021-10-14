@@ -898,6 +898,7 @@ GameObject:
   - component: {fileID: 1370797976}
   - component: {fileID: 1370797975}
   - component: {fileID: 1370797979}
+  - component: {fileID: 1370797980}
   m_Layer: 5
   m_Name: Canvas-MainMenu
   m_TagString: Untagged
@@ -997,8 +998,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1f265577f43a74d867c391394b7126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenuPanel: {fileID: 0}
-  _startNewGameEvent: {fileID: 0}
+  _mainMenuPanel: {fileID: 764716734}
+  _inputReader: {fileID: 11400000, guid: 79a974e888be3a04c85e5c7f6e3cbfd9, type: 2}
+  _startNewGameEvent: {fileID: 11400000, guid: 21f1084606695804e9f8f382b39be7b6, type: 2}
+--- !u!114 &1370797980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370797974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4927a3a2a52350a4faa2ee7616ce243c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputReader: {fileID: 11400000, guid: 79a974e888be3a04c85e5c7f6e3cbfd9, type: 2}
+  _defaultSelection: {fileID: 807860186}
+  currentSelection: {fileID: 0}
+  mouseSelection: {fileID: 0}
 --- !u!1 &1405592521
 GameObject:
   m_ObjectHideFlags: 0
