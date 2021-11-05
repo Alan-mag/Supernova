@@ -94,7 +94,7 @@ public class SceneLoader : MonoBehaviour
 			|| !_gameplayManagerSceneInstance.Scene.isLoaded)
 		{
 			_gameplayManagerLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
-			_gameplayManagerLoadingOpHandle.Completed += OnGameplayMangersLoaded;
+			_gameplayManagerLoadingOpHandle.Completed += OnGameplayManagersLoaded;
 		}
 		else
 		{
@@ -104,7 +104,7 @@ public class SceneLoader : MonoBehaviour
 		StartCoroutine(UnloadPreviousScene());
 	}
 
-	private void OnGameplayMangersLoaded(AsyncOperationHandle<SceneInstance> obj)
+	private void OnGameplayManagersLoaded(AsyncOperationHandle<SceneInstance> obj)
 	{
 		_gameplayManagerSceneInstance = _gameplayManagerLoadingOpHandle.Result;
 
@@ -147,7 +147,7 @@ public class SceneLoader : MonoBehaviour
 			if (_currentlyLoadedScene.sceneReference.OperationHandle.IsValid())
 			{
 				//Unload the scene through its AssetReference, i.e. through the Addressable system
-				_currentlyLoadedScene.sceneReference.UnLoadScene();
+				_currentlyLoadedScene.sceneReference.UnLoadScene(); //todo: is this broken if I don't have addressable system working?
 			}
 #if UNITY_EDITOR
 			else
@@ -188,7 +188,7 @@ public class SceneLoader : MonoBehaviour
 
 		_isLoading = false;
 
-		if (_showLoadingScreen)
+		// if (_showLoadingScreen)
 			// _toggleLoadingScreen.RaiseEvent(false);
 
 		// _fadeRequestChannel.FadeIn(_fadeDuration);
@@ -198,7 +198,8 @@ public class SceneLoader : MonoBehaviour
 
 	private void StartGameplay()
 	{
-		_onSceneReady.RaiseEvent(); //Spawn system will spawn the PigChef in a gameplay scene
+		Debug.Log("raise onsceneready event");
+		_onSceneReady.RaiseEvent(); // Spawn system will spawn the player in a gameplay scene
 	}
 
 	private void ExitGame()

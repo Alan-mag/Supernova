@@ -33,6 +33,14 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Island.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: f39ae5ae687c8e54bb2d894eb265466f
+    m_Address: Assets/Scenes/CityFuture.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 897b32f865186cc459982d993ee0bf5c
+    m_Address: Assets/Scenes/Locations/Lvl1Test.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a34ecab084bb2794ca64861d1a4551be, type: 2}
   m_SchemaSet:

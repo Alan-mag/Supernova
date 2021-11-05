@@ -7,7 +7,7 @@ using UnityEngine.VFX;
 public class PlayerVisualHandler : MonoBehaviour
 {
     [Header("Player Settings")]
-    public CubeData data;
+    public PlayerData data;
 
     [Header("Logic FPS")]
     [Range(0, 60)]

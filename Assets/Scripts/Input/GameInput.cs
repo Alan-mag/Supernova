@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/GameInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Settings/Input/GameInput.inputactions'
 
 using System;
 using System.Collections;
@@ -15,7 +15,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     ""name"": ""GameInput"",
     ""maps"": [
         {
-            ""name"": ""CubeController"",
+            ""name"": ""Gameplay"",
             ""id"": ""15fe327c-b7f0-4ca0-a36b-955e34facc8f"",
             ""actions"": [
                 {
@@ -1146,13 +1146,13 @@ public class @GameInput : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // CubeController
-        m_CubeController = asset.FindActionMap("CubeController", throwIfNotFound: true);
-        m_CubeController_Movement = m_CubeController.FindAction("Movement", throwIfNotFound: true);
-        m_CubeController_RightLean = m_CubeController.FindAction("Right Lean", throwIfNotFound: true);
-        m_CubeController_LeftLean = m_CubeController.FindAction("Left Lean", throwIfNotFound: true);
-        m_CubeController_Fire = m_CubeController.FindAction("Fire", throwIfNotFound: true);
-        m_CubeController_Somersult = m_CubeController.FindAction("Somersult", throwIfNotFound: true);
+        // Gameplay
+        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
+        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+        m_Gameplay_RightLean = m_Gameplay.FindAction("Right Lean", throwIfNotFound: true);
+        m_Gameplay_LeftLean = m_Gameplay.FindAction("Left Lean", throwIfNotFound: true);
+        m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
+        m_Gameplay_Somersult = m_Gameplay.FindAction("Somersult", throwIfNotFound: true);
         // Menus
         m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
         m_Menus_MoveSelection = m_Menus.FindAction("MoveSelection", throwIfNotFound: true);
@@ -1214,49 +1214,49 @@ public class @GameInput : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // CubeController
-    private readonly InputActionMap m_CubeController;
-    private ICubeControllerActions m_CubeControllerActionsCallbackInterface;
-    private readonly InputAction m_CubeController_Movement;
-    private readonly InputAction m_CubeController_RightLean;
-    private readonly InputAction m_CubeController_LeftLean;
-    private readonly InputAction m_CubeController_Fire;
-    private readonly InputAction m_CubeController_Somersult;
-    public struct CubeControllerActions
+    // Gameplay
+    private readonly InputActionMap m_Gameplay;
+    private IGameplayActions m_GameplayActionsCallbackInterface;
+    private readonly InputAction m_Gameplay_Movement;
+    private readonly InputAction m_Gameplay_RightLean;
+    private readonly InputAction m_Gameplay_LeftLean;
+    private readonly InputAction m_Gameplay_Fire;
+    private readonly InputAction m_Gameplay_Somersult;
+    public struct GameplayActions
     {
         private @GameInput m_Wrapper;
-        public CubeControllerActions(@GameInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_CubeController_Movement;
-        public InputAction @RightLean => m_Wrapper.m_CubeController_RightLean;
-        public InputAction @LeftLean => m_Wrapper.m_CubeController_LeftLean;
-        public InputAction @Fire => m_Wrapper.m_CubeController_Fire;
-        public InputAction @Somersult => m_Wrapper.m_CubeController_Somersult;
-        public InputActionMap Get() { return m_Wrapper.m_CubeController; }
+        public GameplayActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
+        public InputAction @RightLean => m_Wrapper.m_Gameplay_RightLean;
+        public InputAction @LeftLean => m_Wrapper.m_Gameplay_LeftLean;
+        public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
+        public InputAction @Somersult => m_Wrapper.m_Gameplay_Somersult;
+        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(CubeControllerActions set) { return set.Get(); }
-        public void SetCallbacks(ICubeControllerActions instance)
+        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
+        public void SetCallbacks(IGameplayActions instance)
         {
-            if (m_Wrapper.m_CubeControllerActionsCallbackInterface != null)
+            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnMovement;
-                @RightLean.started -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnRightLean;
-                @RightLean.performed -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnRightLean;
-                @RightLean.canceled -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnRightLean;
-                @LeftLean.started -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnLeftLean;
-                @LeftLean.performed -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnLeftLean;
-                @LeftLean.canceled -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnLeftLean;
-                @Fire.started -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnFire;
-                @Somersult.started -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnSomersult;
-                @Somersult.performed -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnSomersult;
-                @Somersult.canceled -= m_Wrapper.m_CubeControllerActionsCallbackInterface.OnSomersult;
+                @Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                @RightLean.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightLean;
+                @RightLean.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightLean;
+                @RightLean.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightLean;
+                @LeftLean.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftLean;
+                @LeftLean.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftLean;
+                @LeftLean.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftLean;
+                @Fire.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
+                @Somersult.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSomersult;
+                @Somersult.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSomersult;
+                @Somersult.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSomersult;
             }
-            m_Wrapper.m_CubeControllerActionsCallbackInterface = instance;
+            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movement.started += instance.OnMovement;
@@ -1277,7 +1277,7 @@ public class @GameInput : IInputActionCollection, IDisposable
             }
         }
     }
-    public CubeControllerActions @CubeController => new CubeControllerActions(this);
+    public GameplayActions @Gameplay => new GameplayActions(this);
 
     // Menus
     private readonly InputActionMap m_Menus;
@@ -1425,7 +1425,7 @@ public class @GameInput : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_CubeControllerInputSchemeIndex];
         }
     }
-    public interface ICubeControllerActions
+    public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnRightLean(InputAction.CallbackContext context);

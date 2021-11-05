@@ -6,7 +6,8 @@ using UnityEngine.VFX;
 public class CubeWeaponBehaviour : MonoBehaviour
 {
     [Header("Player Settings")]
-    public CubeData data;
+    public PlayerData data;
+    public InputReader inputReader;
 
     [Header("Logic FPS")]
     [Range(0, 60)]
@@ -40,15 +41,20 @@ public class CubeWeaponBehaviour : MonoBehaviour
     void Awake()
     {
         // FU_LogicInstance = new CustomFixedUpdate(OnFixedUpdate, fps);
-
+         
         for (int i = 0; i < laserLevels.Length; i++)
         {
             ParticleSystem.CollisionModule collision = laserLevels[i].collision;
             collision.collidesWith = _laserColliderLayer;
         }
 
-        // data.onReleaseLaser += () => ReleaseChargeLaser();
-        data.onFireLaser += () => FireWeapon();
+        // data.onReleaseLaser += () => ReleaseChargeLaser(); 
+        inputReader.onFireLaser += () => FireWeapon();
+    }
+
+    void OnDestroy()
+    {
+        inputReader.onFireLaser -= () => FireWeapon();
     }
 
     void Update()
@@ -81,8 +87,10 @@ public class CubeWeaponBehaviour : MonoBehaviour
 
     public void FireWeapon()
     {
+        Debug.Log("fire weapon");
         // I think this fires the particle effect .Play()
         laserLevels[(int)data.weaponState].Play();
+        // laserLevels[0].Play();
 
         if (data.weaponState == WeaponState.LvOne)
             // AudioManager call 

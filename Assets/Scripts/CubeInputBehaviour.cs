@@ -7,28 +7,35 @@ using UnityEngine.InputSystem.Interactions;
 public class CubeInputBehaviour : MonoBehaviour
 {
     [Header("Data Input")]
-    public CubeData cubeData;
+    public PlayerData data;
+    public InputReader inputReader;
 
     [Header("Input Component")]
-    public PlayerInput cubeInput;
+    public PlayerInput playerInput;
 
     private Vector2 inputValue;
 
     void Awake()
     {
         // Default Settings
-        cubeData.shipState = ShipState.TrackMode;
-        cubeData.acrobaticState = AcrobaticState.None;
-        cubeData.buffState = BuffState.None;
-        cubeData.leanState = LeanState.None;
-        cubeData.chargeWeaponState = ChargeWeaponState.None;
-        cubeData.enemyDetectionState = EnemyDetectionState.None;
-        cubeData.weaponState = WeaponState.LvOne;
+        data.shipState = ShipState.TrackMode;
+        data.acrobaticState = AcrobaticState.None;
+        data.buffState = BuffState.None;
+        data.leanState = LeanState.None;
+        data.chargeWeaponState = ChargeWeaponState.None;
+        data.enemyDetectionState = EnemyDetectionState.None;
+        data.weaponState = WeaponState.LvOne;
 
-        cubeData.buffAmount = 100;
-        cubeData.lifeAmount = 100;
+        data.buffAmount = 100;
+        data.lifeAmount = 100;
 
-        cubeData.onInputActive += (bool state) => { if (state) cubeInput.ActivateInput(); else cubeInput.DeactivateInput(); };
+        // check that things aren't breaking here:
+        inputReader.onInputActive += (bool state) => { if (state) playerInput.ActivateInput(); else playerInput.DeactivateInput(); };
+    }
+
+    void OnDestroy()
+    {
+        inputReader.onInputActive -= (bool state) => { if (state) playerInput.ActivateInput(); else playerInput.DeactivateInput(); };
     }
 
     void Start()
@@ -46,33 +53,36 @@ public class CubeInputBehaviour : MonoBehaviour
         inputValue = value.ReadValue<Vector2>();
     }
 
+    // error happened after I uncommented this
+    /*public void OnFireLaser(InputAction.CallbackContext value)
+    {
+        if (value.performed)
+            inputReader.OnFireLaser();
+    }*/
+
+    /*
     public void OnLeftLean(InputAction.CallbackContext value)
     {
         if (value.started)
-            cubeData.leanAxisInput = -1;
+            inputReader.leanAxisInput = -1;
         else if (value.canceled)
-            cubeData.leanAxisInput = 0;
+            inputReader.leanAxisInput = 0;
     }
 
     public void OnRightLean(InputAction.CallbackContext value)
     {
         if (value.started)
-            cubeData.leanAxisInput = 1;
+            inputReader.leanAxisInput = 1;
         else if (value.canceled)
-            cubeData.leanAxisInput = 0;
+            inputReader.leanAxisInput = 0;
     }
 
-    public void OnFireLaser(InputAction.CallbackContext value)
-    {
-        if (value.performed)
-            cubeData.OnFireLaser();
-    }
 
     public void OnSomersult(InputAction.CallbackContext value)
     {
         if (value.performed)
-            cubeData.OnSomersult();
-    }
+            inputReader.OnSomersult();
+    }*/
 
-    void UpdateData() => cubeData.UpdateInputData(inputValue);
+    void UpdateData() => inputReader.UpdateInputData(inputValue);
 }

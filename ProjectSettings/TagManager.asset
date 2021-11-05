@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Environment
   - Terrain
+  - SpawnLocation
   layers:
   - Default
   - TransparentFX

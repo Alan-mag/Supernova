@@ -14,6 +14,7 @@ public class WormAI : MonoBehaviour
     [HideInInspector] public CameraEvent OnBossReveal;
     [HideInInspector] public EffectEvent GroundContact;
     [HideInInspector] public ParticleEvent GroundDetection;
+    [SerializeField]  public int totalHealth;
 
     [Header("Pathing")]
     [SerializeField] CinemachineSmoothPath path = default;
@@ -22,10 +23,14 @@ public class WormAI : MonoBehaviour
     CubeControllerBehaviour playerShip;
     // UIHooks ui;
 
+    [SerializeField] private GameSceneSO _locationToLoad = default;
+
+    [Header("Broadcasting on")]
+    [SerializeField] private LoadEventChannelSO _locationLoadChannel = default;
+
     [HideInInspector] public Vector3 startPosition, endPosition;
 
     RaycastHit hitInfo;
-    int totalHealth;
     int currentHealth;
     // Damageable[] damageables;
     // Start is called before the first frame update
@@ -99,12 +104,12 @@ public class WormAI : MonoBehaviour
 
     void UpdatePath()
     {
-        Vector3 playerPosition = playerShip.transform.position + (playerShip.GetComponent<Rigidbody>().velocity * 3);
+        Vector3 playerPosition = playerShip.transform.position + (playerShip.GetComponent<Rigidbody>().velocity * 6);
         playerPosition.y = Mathf.Max(10, playerPosition.y);
         Vector3 randomRange = Random.insideUnitSphere * 100;
         randomRange.y = 0;
         startPosition = playerPosition + randomRange;
-        endPosition = playerPosition - randomRange;
+        endPosition = playerPosition - randomRange * 5;
 
         if (Physics.Raycast(startPosition, Vector3.down, out hitInfo, 1000, terrainLayer.value))
         {
@@ -119,32 +124,43 @@ public class WormAI : MonoBehaviour
         }
 
         path.m_Waypoints[0].position = startPosition + (Vector3.down * 15);
-        path.m_Waypoints[1].position = playerPosition + (Vector3.up * 10);
-        path.m_Waypoints[2].position = endPosition + (Vector3.down * 35);
+        path.m_Waypoints[1].position = playerPosition + (Vector3.up * 25);
+        path.m_Waypoints[2].position = endPosition + (Vector3.down * 80);
 
         path.InvalidateDistanceCache();
         cart.m_Position = 0;
 
         //speed
-        cart.m_Speed = cart.m_Path.PathLength / 750;
+        cart.m_Speed = cart.m_Path.PathLength / 5500;
 
         OnBossReveal.Invoke(true);
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    // todo: add health system to boss and trigger next level after killing it
+    // look at how damageable was used before for this obj
+    void OnTriggerEnter(Collider other)
     {
         Debug.Log("collision enter boss");
-        /*if (other.transform.TryGetComponent(out Damageable damageable))
+        if (other.gameObject.tag == "Player")
         {
-            print("hit ship");
-            Damageable.DamageMessage message = new Damageable.DamageMessage()
+            Debug.Log("Hit Enemy boss - ouch");
+            Debug.Log(other);
+            // collision.transform.GetComponent<IDamagable>().SetDamage(5);
+            currentHealth -= 10;
+            Debug.Log(currentHealth);
+            if (currentHealth <= 0)
             {
-                amount = 1,
-                damageSource = transform.position
-            };
-            damageable.ApplyDamage(message);
-        }*/
+                Destroy(gameObject);
+                LoadScene();
+            }
+        }
+    }
+
+    public void LoadScene()
+    {
+        Debug.Log("Load scene!");
+        _locationLoadChannel.RaiseEvent(_locationToLoad, false, false);
     }
 
     private void OnDrawGizmos()
