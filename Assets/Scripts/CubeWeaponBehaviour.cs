@@ -49,12 +49,14 @@ public class CubeWeaponBehaviour : MonoBehaviour
         }
 
         // data.onReleaseLaser += () => ReleaseChargeLaser(); 
-        inputReader.onFireLaser += () => FireWeapon();
+        // inputReader.onFireLaser += () => FireWeapon();
+        inputReader.onFireLaser += FireWeapon;
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
-        inputReader.onFireLaser -= () => FireWeapon();
+        // inputReader.onFireLaser -= () => FireWeapon();
+        inputReader.onFireLaser -= FireWeapon;
     }
 
     void Update()
