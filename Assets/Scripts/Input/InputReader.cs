@@ -12,21 +12,21 @@ public class InputReader : ScriptableObject, GameInput.IMenusActions, GameInput.
 	public event UnityAction moveSelectionEvent = delegate { };
 
 	// Player Movement
-	public event Action<int> onBarrelRoll;
-	public event Action<bool> onBoost;
-	public event Action<bool> onBreak;
-	public event Action onSomersult;
-	public event Action onUTurn;
+	public event UnityAction<int> onBarrelRoll;
+	public event UnityAction<bool> onBoost;
+	public event UnityAction<bool> onBreak;
+	public event UnityAction onSomersult;
+	public event UnityAction onUTurn;
 
 	// weapons
 	// i might need to move these? to runtime scripts?
-	public event Action onFireLaser;
-	public event Action onReleaseLaser;
+	public event UnityAction onFireLaser;
+	public event UnityAction onReleaseLaser;
 
 	// Other player actions
-	public event Action onUpdateHP;
-	public event Action<bool> onInputActive;
-	public event Action onDamageEffect;
+	public event UnityAction onUpdateHP;
+	public event UnityAction<bool> onInputActive;
+	public event UnityAction onDamageEffect;
 
 	// Menus
 	public event UnityAction menuMouseMoveEvent = delegate { };
@@ -37,6 +37,7 @@ public class InputReader : ScriptableObject, GameInput.IMenusActions, GameInput.
 	public event UnityAction menuCloseEvent = delegate { };
 
 	private GameInput gameInput;
+	private Vector2 inputValue;
 
 	[Header("Movement Data")]
 	public bool physicMovement;
@@ -232,10 +233,10 @@ public class InputReader : ScriptableObject, GameInput.IMenusActions, GameInput.
 		onUTurn?.Invoke(); 
 	}
 
-	public void OnFireLaser() 
+/*	public void OnFireLaser() 
 	{ 
 		onFireLaser?.Invoke(); 
-	}
+	}*/
 
 	public void OnReleaseLaser() 
 	{ 
@@ -258,7 +259,7 @@ public class InputReader : ScriptableObject, GameInput.IMenusActions, GameInput.
 
 	public void OnMovement(InputAction.CallbackContext value)
 	{
-		
+		inputValue = value.ReadValue<Vector2>();
 	}
 
 	public void OnLeftLean(InputAction.CallbackContext value)
@@ -276,12 +277,6 @@ public class InputReader : ScriptableObject, GameInput.IMenusActions, GameInput.
 		else if (value.canceled)
 			leanAxisInput = 0;
 	}
-
-	/*public void OnFireLaser(InputAction.CallbackContext value)
-	{
-		if (value.performed)
-			OnFireLaser();
-	}*/
 
 	public void OnSomersult(InputAction.CallbackContext value)
 	{

@@ -6,9 +6,9 @@ public class SpawnSystem : MonoBehaviour
 {
     [Header("Asset References")]
     [SerializeField] private InputReader _inputReader = default;
-    [SerializeField] Player _playerPrefab = default;
+    [SerializeField] GameplayObject _playerPrefab = default;
     [SerializeField] private TransformAnchor _playerTransformAnchor = default;
-    [SerializeField] private TransformEventChannelSO __playerInstantiatedChannel = default;
+    [SerializeField] private TransformEventChannelSO _playerInstantiatedChannel = default;
 
     [Header("Scene References")]
     private Transform _defaultSpawnPoint;
@@ -36,22 +36,21 @@ public class SpawnSystem : MonoBehaviour
         return _defaultSpawnPoint; // default spawn point
     }
 
-    private Player InstantiatePlayer(Player playerPrefab, Transform spawnLocation)
+    private GameplayObject InstantiatePlayer(GameplayObject playerPrefab, Transform spawnLocation)
     {
         if (playerPrefab == null)
             throw new Exception("Player prefab can't be null.");
 
-        Player playerInstance = Instantiate(playerPrefab, spawnLocation.position, spawnLocation.rotation);
+        GameplayObject playerInstance = Instantiate(playerPrefab, spawnLocation.position, spawnLocation.rotation);
 
         return playerInstance;
     }
 
     private void SpawnPlayer()
     {
-        Debug.Log("SpawnPlayer");
-        Player playerInstance = InstantiatePlayer(_playerPrefab, GetSpawnLocation());
+        GameplayObject playerInstance = InstantiatePlayer(_playerPrefab, GetSpawnLocation());
 
-        __playerInstantiatedChannel.RaiseEvent(playerInstance.transform);
+        _playerInstantiatedChannel.RaiseEvent(playerInstance.transform);
         _playerTransformAnchor.Transform = playerInstance.transform;
 
         _inputReader.EnableGameplayInput();

@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
 	[SerializeField] private GameSceneSO _gameplayScene = default;
-	// [SerializeField] private InputReader _inputReader = default;
+	[SerializeField] private InputReader _inputReader = default;
 
 	[Header("Load Events")]
 	[SerializeField] private LoadEventChannelSO _loadLocation = default;
@@ -132,12 +132,25 @@ public class SceneLoader : MonoBehaviour
 		StartCoroutine(UnloadPreviousScene());
 	}
 
+	/*private IEnumerator UnloadPreviousScene()
+    {
+		Scene curScene = SceneManager.GetActiveScene();
+		AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(curScene);
+
+		var wait = new WaitForSeconds(1.0f);
+		while (!asyncUnload.isDone)
+        {
+			yield return wait;
+        }
+		LoadNewScene();
+    }*/
+
 	/// <summary>
 	/// In both Location and Menu loading, this function takes care of removing previously loaded scenes.
 	/// </summary>
 	private IEnumerator UnloadPreviousScene()
 	{
-		// _inputReader.DisableAllInput();
+		_inputReader.DisableAllInput();
 		// _fadeRequestChannel.FadeOut(_fadeDuration);
 
 		yield return new WaitForSeconds(_fadeDuration);
@@ -189,16 +202,17 @@ public class SceneLoader : MonoBehaviour
 		_isLoading = false;
 
 		// if (_showLoadingScreen)
-			// _toggleLoadingScreen.RaiseEvent(false);
+		// _toggleLoadingScreen.RaiseEvent(false);
 
 		// _fadeRequestChannel.FadeIn(_fadeDuration);
-
 		StartGameplay();
 	}
 
 	private void StartGameplay()
 	{
 		Debug.Log("raise onsceneready event");
+
+		_inputReader.EnableGameplayInput();
 		_onSceneReady.RaiseEvent(); // Spawn system will spawn the player in a gameplay scene
 	}
 

@@ -52,7 +52,7 @@ public class CubeWeaponBehaviour : MonoBehaviour
         inputReader.onFireLaser += () => FireWeapon();
     }
 
-    void OnDestroy()
+    void OnDisable()
     {
         inputReader.onFireLaser -= () => FireWeapon();
     }
@@ -89,6 +89,10 @@ public class CubeWeaponBehaviour : MonoBehaviour
     {
         Debug.Log("fire weapon");
         // I think this fires the particle effect .Play()
+        // error is here, laserlevels particlesystem has been destroyed but
+        // is still trying to access on scene change
+        Debug.Log(laserLevels[0].transform.root.name);
+
         laserLevels[(int)data.weaponState].Play();
         // laserLevels[0].Play();
 

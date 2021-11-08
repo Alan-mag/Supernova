@@ -89,10 +89,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 11400000, guid: 996265fb52c0ef047b41027b327b514d, type: 2}
-  _playerPrefab: {fileID: 2033683222462388428, guid: 96f08d6ee6cfd84498d97280f21077f3,
+  _playerPrefab: {fileID: 6409993226958789588, guid: 5744738ecc53f354eaa034d8a2a910d2,
     type: 3}
   _playerTransformAnchor: {fileID: 11400000, guid: f64a6f63711f14349adf99135b97f311,
     type: 2}
-  __playerInstantiatedChannel: {fileID: 11400000, guid: 41425c953f69cc24b85285f22bcb7646,
+  _playerInstantiatedChannel: {fileID: 11400000, guid: 41425c953f69cc24b85285f22bcb7646,
     type: 2}
   _OnSceneReady: {fileID: 11400000, guid: 100a8e5a1cd1a8b4fa8fc7fcfb5281ac, type: 2}

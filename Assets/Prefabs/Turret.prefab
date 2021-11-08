@@ -5217,6 +5217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 4f00a8e700579a2499f2576cbf5c337d, type: 2}
   projectileParticle: {fileID: 91275518306151518}
+  _playerInstantiatedChannel: {fileID: 11400000, guid: 41425c953f69cc24b85285f22bcb7646,
+    type: 2}
 --- !u!1 &8334781617705880882
 GameObject:
   m_ObjectHideFlags: 0

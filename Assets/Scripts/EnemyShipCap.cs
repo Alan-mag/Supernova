@@ -58,6 +58,9 @@ public class EnemyShipCap : MonoBehaviour, IDamagable
         _model.gameObject.SetActive(false);
         _collider.enabled = false;
 
+        // todo: fix this, the particals in flight shouldn't die immediately
+        Destroy(this.gameObject);
+
         // OnDrop();
     }
 

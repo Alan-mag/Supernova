@@ -41,6 +41,10 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Locations/Lvl1Test.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: b26cab28ceb5ea2448cb319ddd0ac686
+    m_Address: Assets/Scenes/Locations/Lvl2Test.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a34ecab084bb2794ca64861d1a4551be, type: 2}
   m_SchemaSet:

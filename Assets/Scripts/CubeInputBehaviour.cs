@@ -10,10 +10,10 @@ public class CubeInputBehaviour : MonoBehaviour
     public PlayerData data;
     public InputReader inputReader;
 
-    [Header("Input Component")]
-    public PlayerInput playerInput;
+    // [Header("Input Component")]
+    // public PlayerInput playerInput;
 
-    private Vector2 inputValue;
+    // private Vector2 inputValue;
 
     void Awake()
     {
@@ -30,28 +30,30 @@ public class CubeInputBehaviour : MonoBehaviour
         data.lifeAmount = 100;
 
         // check that things aren't breaking here:
-        inputReader.onInputActive += (bool state) => { if (state) playerInput.ActivateInput(); else playerInput.DeactivateInput(); };
+        // inputReader.onInputActive += (bool state) => { if (state) playerInput.ActivateInput(); else playerInput.DeactivateInput(); };
+        //  inputReader.EnableGameplayInput();
     }
 
-    void OnDestroy()
+    /*void OnDestroy()
     {
-        inputReader.onInputActive -= (bool state) => { if (state) playerInput.ActivateInput(); else playerInput.DeactivateInput(); };
-    }
+        // inputReader.onInputActive -= (bool state) => { if (state) playerInput.ActivateInput(); else playerInput.DeactivateInput(); };
+        inputReader.DisableAllInput();
+    }*/
 
-    void Start()
+    /*void Start()
     {
 
-    }
+    }*/
 
-    void Update()
+    /*void Update()
     {
-        UpdateData();
-    }
+        // UpdateData();
+    }*/
 
-    public void OnMovement(InputAction.CallbackContext value)
+    /*public void OnMovement(InputAction.CallbackContext value)
     {
         inputValue = value.ReadValue<Vector2>();
-    }
+    }*/
 
     // error happened after I uncommented this
     /*public void OnFireLaser(InputAction.CallbackContext value)
@@ -84,5 +86,5 @@ public class CubeInputBehaviour : MonoBehaviour
             inputReader.OnSomersult();
     }*/
 
-    void UpdateData() => inputReader.UpdateInputData(inputValue);
+    // void UpdateData() => inputReader.UpdateInputData(inputValue);
 }

@@ -9,11 +9,32 @@ public class EnemyWeaponScript : MonoBehaviour
 
     [SerializeField] ParticleSystem projectileParticle;
 
+    [SerializeField] private TransformEventChannelSO _playerInstantiatedChannel = default;
+
     Transform target;
 
     void Awake()
     {
-        target = FindObjectsOfType<CubeControllerBehaviour>()[0].transform;
+        // todo: update
+        // cubecontroller isn't intialized by this time
+        // i should probably be listening to the event that gets called
+        // after spawning happenens, then do this.
+    }
+    
+    void OnEnable()
+    {
+        // _playerInstantiatedChannel.OnEventRaised += AquirePlayerTarget;
+        // todo: somethign is broken here
+        /*if (FindObjectsOfType<CubeControllerBehaviour>()[0] != null)
+        {
+            Debug.Log(FindObjectsOfType<CubeControllerBehaviour>()[0]);
+            target = FindObjectsOfType<CubeControllerBehaviour>()[0].transform;
+        }*/
+    }
+
+    void OnDisable()
+    {
+        // _playerInstantiatedChannel.OnEventRaised -= AquirePlayerTarget;
     }
 
     // probably good to clean this up instead of handling it all in update
@@ -22,6 +43,8 @@ public class EnemyWeaponScript : MonoBehaviour
     // if state changes and the enemy is too far away to fire -- stop running coroutine
     void Update()
     {
+        // todo: expensive calls here - see if you can do this another way
+        target = FindObjectsOfType<CubeControllerBehaviour>()[0].transform;
         if (target && projectileParticle &&  CheckWithinRange(gameObject.transform.position, target.transform.position))
         {
             FireWeapon();
@@ -31,12 +54,19 @@ public class EnemyWeaponScript : MonoBehaviour
                 projectileParticle.Stop();
         }
     }
-
+     
     void FireWeapon()
     {
         gameObject.transform.LookAt(target);
         if (!projectileParticle.isPlaying)
             projectileParticle.Play();
+    }
+
+    private void AquirePlayerTarget(Transform playerTransform)
+    {
+        // target = FindObjectsOfType<CubeControllerBehaviour>()[0].transform;
+        // Debug.Log("target: " + target);
+        // target = playerTransform;
     }
 
     private bool CheckWithinRange(Vector3 targetPosition, Vector3 currentPosition)

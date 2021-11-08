@@ -12,6 +12,8 @@ TagManager:
   - Environment
   - Terrain
   - SpawnLocation
+  - EnemiesContainer
+  - LevelDollyTrack
   layers:
   - Default
   - TransparentFX
