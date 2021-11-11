@@ -66,9 +66,10 @@ public class SceneLoader : MonoBehaviour
 		if (_currentlyLoadedScene.sceneType == GameSceneSO.GameSceneType.Location)
 		{
 			//Gameplay managers is loaded synchronously
-			_gameplayManagerLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
-			_gameplayManagerLoadingOpHandle.WaitForCompletion();
-			_gameplayManagerSceneInstance = _gameplayManagerLoadingOpHandle.Result;
+			// todo: add this in - when gameplay scene ready
+			// _gameplayManagerLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
+			// _gameplayManagerLoadingOpHandle.WaitForCompletion();
+			// _gameplayManagerSceneInstance = _gameplayManagerLoadingOpHandle.Result;
 
 			StartGameplay();
 		}
