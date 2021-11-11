@@ -52,8 +52,8 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable, IUpgradeItem
         inputReader.onBoost += (bool state) => Boost(state);
         inputReader.onBreak += (bool state) => Break(state);
         */
-        inputReader.onSomersult += () => DOAcrobatic(AcrobaticState.Somersult, null, 50, false);
-        inputReader.onUTurn += () => DOAcrobatic(AcrobaticState.UTurn, _playerTransform, 50, false);
+        inputReader.onSomersult += () => DOAcrobatic(AcrobaticState.Somersult, null, 50, false); // getting same error as before
+        inputReader.onUTurn += () => DOAcrobatic(AcrobaticState.UTurn, _playerTransform, 50, false); // getting same error as before
     }
 
     void OnDestroy()

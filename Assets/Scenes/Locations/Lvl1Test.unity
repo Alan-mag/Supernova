@@ -3904,7 +3904,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: c808a37887b059d4d9a506bedf462042, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3923,6 +3923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618fe3f9ebf234c428b248df1992c872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerInstantiatedChannel: {fileID: 11400000, guid: 41425c953f69cc24b85285f22bcb7646,
+    type: 2}
 --- !u!1 &1769773301
 GameObject:
   m_ObjectHideFlags: 0
