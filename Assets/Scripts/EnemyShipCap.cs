@@ -7,7 +7,7 @@ using UnityEngine.VFX;
 public class EnemyShipCap : MonoBehaviour, IDamagable
 {
     [Header("Enemy Data")]
-    public EnemyDataCap data;
+    public EnemyData data;
 
     [Header("Sounds")]
     [SerializeField] EffectsSounds _hitSound;
@@ -58,14 +58,19 @@ public class EnemyShipCap : MonoBehaviour, IDamagable
         _model.gameObject.SetActive(false);
         _collider.enabled = false;
 
+        // todo: fix this, the particals in flight shouldn't die immediately
+        Destroy(this.gameObject);
+
         // OnDrop();
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
+        {
             Debug.Log("Hit Enemy ship - ouch");
-            // TODO: implement IDamageable?
+            Debug.Log(collision);
             collision.transform.GetComponent<IDamagable>().SetDamage(data.damageToPlayer);
+        }
     }
 }

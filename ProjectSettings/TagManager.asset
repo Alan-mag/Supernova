@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - All Range VCam
+  - BrainCamera
+  - Track VCam
+  - Somersult VCam
+  - Enemy
+  - Environment
+  - Terrain
+  - SpawnLocation
+  - EnemiesContainer
+  - LevelDollyTrack
   layers:
   - Default
   - TransparentFX
@@ -15,9 +25,9 @@ TagManager:
   - 
   - 
   - Player
-  - 
-  - 
-  - 
+  - Enemy
+  - Environment
+  - Terrain
   - 
   - 
   - 
