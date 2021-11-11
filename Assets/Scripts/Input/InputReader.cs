@@ -252,14 +252,14 @@ public class InputReader : ScriptableObject, GameInput.IMenusActions, GameInput.
 		onInputActive?.Invoke(state); 
 	}
 
-	public void UpdateInputData(Vector2 newMovement)
+	/*public void UpdateInputData(Vector2 newMovement)
 	{
 		movementInput = newMovement;
-	}
+	}*/
 
 	public void OnMovement(InputAction.CallbackContext value)
 	{
-		inputValue = value.ReadValue<Vector2>();
+		movementInput = value.ReadValue<Vector2>();
 	}
 
 	public void OnLeftLean(InputAction.CallbackContext value)
