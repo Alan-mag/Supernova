@@ -32,4 +32,18 @@ public class GameplayObject : MonoBehaviour
             }
         }
     }
+
+    void Start()
+    {
+
+    }
+
+
+    public void SetAllRangeModeForPlayer()
+    {
+        CubeControllerBehaviour boxWing = GetComponentInChildren<CubeControllerBehaviour>();
+        Debug.Log(boxWing);
+        if (boxWing != null)
+            boxWing.SetAllRangeMode();
+    }
 }

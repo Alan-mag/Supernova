@@ -14,6 +14,7 @@ TagManager:
   - SpawnLocation
   - EnemiesContainer
   - LevelDollyTrack
+  - LevelSelectButton
   layers:
   - Default
   - TransparentFX

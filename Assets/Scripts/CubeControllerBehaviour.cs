@@ -37,6 +37,9 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable, IUpgradeItem
     private Vector2 smoothAimSpeed;
     private Vector2 smoothLocalSpeed;
 
+    [Header("Listening to")]
+    [SerializeField] private VoidEventChannelSO _allRangeModeChannel;
+
     void Awake()
     {
         if (inputReader.physicMovement)
@@ -52,8 +55,9 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable, IUpgradeItem
         inputReader.onBoost += (bool state) => Boost(state);
         inputReader.onBreak += (bool state) => Break(state);
         */
-        inputReader.onSomersult += () => DOAcrobatic(AcrobaticState.Somersult, null, 50, false);
-        inputReader.onUTurn += () => DOAcrobatic(AcrobaticState.UTurn, _playerTransform, 50, false);
+        inputReader.onSomersult += () => DOAcrobatic(AcrobaticState.Somersult, null, 50, false); // getting same error as before
+        inputReader.onUTurn += () => DOAcrobatic(AcrobaticState.UTurn, _playerTransform, 50, false); // getting same error as before
+        _allRangeModeChannel.OnEventRaised += SetAllRangeMode;
     }
 
     void OnDestroy()
@@ -61,6 +65,7 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable, IUpgradeItem
         inputReader.onBarrelRoll -= (int axis) => StartCoroutine(BarrelRoll(axis));
         inputReader.onSomersult -= () => DOAcrobatic(AcrobaticState.Somersult, null, 50, false);
         inputReader.onUTurn -= () => DOAcrobatic(AcrobaticState.UTurn, _playerTransform, 50, false);
+        _allRangeModeChannel.OnEventRaised -= SetAllRangeMode;
     }
 
     void FixedUpdate()

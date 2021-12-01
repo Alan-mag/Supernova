@@ -224,11 +224,6 @@ public class InputReader : ScriptableObject, GameInput.IMenusActions, GameInput.
 		onBreak?.Invoke(state); 
 	}
 
-	public void OnSomersult() 
-	{ 
-		onSomersult?.Invoke();
-	}
-
 	public void OnUTurn() { 
 		onUTurn?.Invoke(); 
 	}
@@ -281,7 +276,7 @@ public class InputReader : ScriptableObject, GameInput.IMenusActions, GameInput.
 	public void OnSomersult(InputAction.CallbackContext value)
 	{
 		if (value.performed)
-			OnSomersult();
+			onSomersult?.Invoke();
 	}
 
 	// onfire and onfirelaser?

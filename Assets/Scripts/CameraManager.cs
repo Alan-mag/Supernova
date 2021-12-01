@@ -9,17 +9,29 @@ public class CameraManager : MonoBehaviour
     public static Camera mainCamera;
     static CinemachineBrain brainVCam;
     static CinemachineVirtualCamera[] vCams;
+    [SerializeField] private TransformEventChannelSO _playerInstantiatedChannel = default;
 
     void Awake()
     {
         mainCamera = GameObject.FindGameObjectWithTag("BrainCamera").GetComponent<Camera>();
         brainVCam = mainCamera.GetComponent<CinemachineBrain>();
-        vCams = FindObjectsOfType<CinemachineVirtualCamera>(); // todo: ask owen about stuff
+       //  vCams = FindObjectsOfType<CinemachineVirtualCamera>(); // todo: This should be triggered after 'Gameplay' prefab is instantiated --> otherwise somersult and other cams won't be picked up 'PlayerInstantiated-channel'
+        _playerInstantiatedChannel.OnEventRaised += SetVCamList;
+    }
+
+    void OnDestroy()
+    {
+        _playerInstantiatedChannel.OnEventRaised -= SetVCamList;
     }
 
     public static void SetUpdateMethod(CinemachineBrain.UpdateMethod method)
     {
         brainVCam.m_UpdateMethod = method;
+    }
+
+    public void SetVCamList(Transform playerTransform)
+    {
+        vCams = FindObjectsOfType<CinemachineVirtualCamera>(); // todo: This should be triggered after 'Gameplay' prefab is instantiated --> otherwise somersult and other cams won't be picked up 'PlayerInstantiated-channel'
     }
 
     public static void SetLiveCamera(string tag)
