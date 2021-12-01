@@ -5822,6 +5822,8 @@ MonoBehaviour:
   _playerTransform: {fileID: 6489229352929535869}
   _cubeTransform: {fileID: 6489229354237954705}
   _arrow: {fileID: 6489229353796484848}
+  _allRangeModeChannel: {fileID: 11400000, guid: 8b93ee8820356c34e94619a108dccd63,
+    type: 2}
 --- !u!114 &6489229354237954717
 MonoBehaviour:
   m_ObjectHideFlags: 0

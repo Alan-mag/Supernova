@@ -327,8 +327,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 1
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 214626146928839116}
+  m_Follow: {fileID: 214626146963422637}
   m_Lens:
     FieldOfView: 30
     OrthographicSize: 5
@@ -523,8 +523,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 0
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 214626146963422637}
+  m_Follow: {fileID: 214626145654591553}
   m_Lens:
     FieldOfView: 30
     OrthographicSize: 5
@@ -920,6 +920,12 @@ Transform:
 --- !u!4 &214626145654591553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6489229352929535869, guid: 96f08d6ee6cfd84498d97280f21077f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6409993226197399356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &214626146928839116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6489229353796484848, guid: 96f08d6ee6cfd84498d97280f21077f3,
     type: 3}
   m_PrefabInstance: {fileID: 6409993226197399356}
   m_PrefabAsset: {fileID: 0}

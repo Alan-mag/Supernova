@@ -29,14 +29,6 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Managers/PersistentManagers.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 9934077cd1d98d745863ea5e316c134f
-    m_Address: Assets/Scenes/Island.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: f39ae5ae687c8e54bb2d894eb265466f
-    m_Address: Assets/Scenes/CityFuture.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 897b32f865186cc459982d993ee0bf5c
     m_Address: Assets/Scenes/Locations/Lvl1Test.unity
     m_ReadOnly: 0
@@ -51,6 +43,42 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: c48c611f98c385743ab7943677cbc923
     m_Address: Assets/ScriptableObjects/EventChannels/ColdStartup_Channel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e4d450e7cbc4cec40a6d08a862418cd1
+    m_Address: Assets/Scenes/Menus/LevelSelect.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 53e6bad11dd7b3c499f1b9f7e0c66e62
+    m_Address: Assets/Scenes/Locations/Level1.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0020febdc29dea943b4c5baa9168c660
+    m_Address: Assets/Scenes/Locations/Level2.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f4539328ba921dc4fbe292af4020c607
+    m_Address: Assets/Scenes/Locations/Level3.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4539b70ebd190734aa1f353c2de7c6f3
+    m_Address: Assets/Scenes/Locations/Level4.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5c302f3b4ec2dbb458d10b08c84561fd
+    m_Address: Assets/Scenes/Locations/Level5.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8f043fe8abd6e0c40be584ed851690f6
+    m_Address: Assets/Scenes/Locations/Level6.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6dd4c1ccdc0812e45af53832cb3c13b8
+    m_Address: Assets/Scenes/Locations/Level7.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a5e089ad67604fc40b44a119cdd447f7
+    m_Address: Assets/Scenes/Locations/Level8.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

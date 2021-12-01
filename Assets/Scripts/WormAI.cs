@@ -159,8 +159,8 @@ public class WormAI : MonoBehaviour
 
     public void LoadScene()
     {
-        Debug.Log("Load scene!");
-        _locationLoadChannel.RaiseEvent(_locationToLoad, false, false);
+        Debug.Log("can load scene on boss destroy!");
+        // _locationLoadChannel.RaiseEvent(_locationToLoad, false, false);
     }
 
     private void OnDrawGizmos()
