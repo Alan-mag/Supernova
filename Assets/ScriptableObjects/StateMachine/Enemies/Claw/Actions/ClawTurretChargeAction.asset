@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4b460366ba73e4c8a885afd764316b, type: 3}
-  m_Name: Charging
+  m_Script: {fileID: 11500000, guid: df196f5a8c2fbf348bab1241de0dde70, type: 3}
+  m_Name: ClawTurretChargeAction
   m_EditorClassIdentifier: 
-  _actions:
-  - {fileID: 11400000, guid: 26192da299df6764d94ad21666ab1127, type: 2}
-  - {fileID: 11400000, guid: 87c578e546796de499d3b64b43d73d0f, type: 2}
