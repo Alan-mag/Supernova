@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class IFactory : MonoBehaviour
+namespace Supernova.Factory
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+	/// Represents a factory.
+	/// </summary>
+	/// <typeparam name="T">Specifies the type to create.</typeparam>
+    public interface IFactory<T>
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        T Create();
     }
 }
