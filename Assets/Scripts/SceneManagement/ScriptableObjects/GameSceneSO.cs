@@ -7,7 +7,7 @@ public class GameSceneSO : DescriptionBaseSO
 {
     public GameSceneType sceneType;
     public AssetReference sceneReference;
-    // public AudioCueSO musicTrack;
+    public AudioCueSO musicTrack;
 
     public enum GameSceneType
     {
