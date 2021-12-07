@@ -81,6 +81,14 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Locations/Level8.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 4e920ee059ae7194c8d1e081aad93819
+    m_Address: Assets/Audio/Music/Dembow2.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e1dbaa01fbe78ba4d8029db34cceddb4
+    m_Address: Assets/Scenes/Test/AudioTest.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a34ecab084bb2794ca64861d1a4551be, type: 2}
   m_SchemaSet:

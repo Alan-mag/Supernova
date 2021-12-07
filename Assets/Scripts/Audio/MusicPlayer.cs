@@ -13,14 +13,14 @@ public class MusicPlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        _onPauseOpened.OnEventRaised += PlayPauseMusic;
+        // _onPauseOpened.OnEventRaised += PlayPauseMusic;
         _onSceneReady.OnEventRaised += PlayMusic;
     }
 
     private void OnDisable()
     {
         _onSceneReady.OnEventRaised -= PlayMusic;
-        _onPauseOpened.OnEventRaised -= PlayPauseMusic;
+        // _onPauseOpened.OnEventRaised -= PlayPauseMusic;
     }
 
     private void PlayMusic()

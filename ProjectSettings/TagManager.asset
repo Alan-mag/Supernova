@@ -15,6 +15,7 @@ TagManager:
   - EnemiesContainer
   - LevelDollyTrack
   - LevelSelectButton
+  - AudioManager
   layers:
   - Default
   - TransparentFX

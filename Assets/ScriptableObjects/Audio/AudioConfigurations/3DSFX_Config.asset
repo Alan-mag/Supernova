@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fff1edcc2c6d44ab42f607daa350b4, type: 3}
+  m_Name: 3DSFX_Config
+  m_EditorClassIdentifier: 
+  OutputAudioMixerGroup: {fileID: -4311129448693691874, guid: bc790ea4a3b94da49b5d61f010fb22cf,
+    type: 2}
+  _priorityLevel: 128
+  Mute: 0
+  Volume: 1
+  Pitch: 1
+  PanStereo: 0
+  ReverbZoneMix: 1
+  SpatialBlend: 1
+  RolloffMode: 0
+  MinDistance: 0.3
+  MaxDistance: 100
+  Spread: 0
+  DopplerLevel: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  IgnoreListenerVolume: 0
+  IgnoreListenerPause: 0
