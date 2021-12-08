@@ -49,6 +49,10 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Test/AudioTest.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 30dde283e6734e84ea75cf9195d31f66
+    m_Address: Assets/Scenes/Test/CutsceneExample.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a34ecab084bb2794ca64861d1a4551be, type: 2}
   m_SchemaSet:
