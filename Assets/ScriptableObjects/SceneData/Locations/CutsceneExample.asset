@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce55bb83c1e0caf4b860ff44be79f887, type: 3}
-  m_Name: Level1
+  m_Name: CutsceneExample
   m_EditorClassIdentifier: 
-  _guid: 122f9b8fecbb4d842aa38b6e38061963
+  _guid: c09a52fdfcfc424408ddb2f622c08f72
   description: 
   sceneType: 0
   sceneReference:
-    m_AssetGUID: 53e6bad11dd7b3c499f1b9f7e0c66e62
+    m_AssetGUID: 30dde283e6734e84ea75cf9195d31f66
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  musicTrack: {fileID: 11400000, guid: 11c1f4ff9307c2f4db986513f2ad9e69, type: 2}
+  musicTrack: {fileID: 0}
   locationName:
     m_TableReference:
       m_TableCollectionName: 
