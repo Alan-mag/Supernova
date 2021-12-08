@@ -9,7 +9,7 @@ public class GameplayObject : MonoBehaviour
     {
         // DontDestroyOnLoad(this.gameObject); // causes dullicated
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("EnemiesContainer");
-        if (enemies[0] != null)
+        if (enemies.Length > 0)
         {
             enemies[0].transform.SetParent(this.gameObject.transform);
         }
