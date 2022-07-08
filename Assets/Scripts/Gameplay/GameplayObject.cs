@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class GameplayObject : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject spaceSkybox;
+
     void Awake()
     {
         // DontDestroyOnLoad(this.gameObject); // causes dullicated
@@ -31,6 +35,15 @@ public class GameplayObject : MonoBehaviour
                 levelCinemachineDollyCart.m_Path = levelPath;
             }
         }
+
+        string levelName = SceneManager.GetActiveScene().name;
+
+        // Debug.Log("Awake:" + SceneManager.GetActiveScene().name);
+
+        // not good: hard coded --> fix this another wya
+
+        if (levelName.Equals("Level6[SpaceElevator]") || levelName.Equals("Level8[Boss]"))
+            spaceSkybox.SetActive(true);
     }
 
     void Start()

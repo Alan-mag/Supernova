@@ -17,10 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 9b8d52337b06e9341acf3ee6c68ac1dc
   m_SerializeEntries:
-  - m_GUID: 53e6bad11dd7b3c499f1b9f7e0c66e62
-    m_Address: Assets/Scenes/Locations/Level1.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 0020febdc29dea943b4c5baa9168c660
     m_Address: Assets/Scenes/Locations/Level2.unity
     m_ReadOnly: 0
@@ -47,6 +43,10 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: a5e089ad67604fc40b44a119cdd447f7
     m_Address: Assets/Scenes/Locations/Level8.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2446abd615a65a44f8d00ec71208d9e3
+    m_Address: Assets/Scenes/Managers/Gameplay.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

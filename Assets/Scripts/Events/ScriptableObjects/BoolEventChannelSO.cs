@@ -6,7 +6,7 @@ using UnityEngine;
 /// Example: An event to toggle a UI interface
 /// </summary>
 [CreateAssetMenu(menuName = "Events/Bool Event Channel")]
-public class BoolEventChannelSO : MonoBehaviour
+public class BoolEventChannelSO : DescriptionBaseSO
 {
     public event UnityAction<bool> OnEventRaised;
 

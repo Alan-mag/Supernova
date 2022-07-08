@@ -211,7 +211,7 @@ public class SceneLoader : MonoBehaviour
 
 	private void StartGameplay()
 	{
-		Debug.Log("raise onsceneready event");
+		// Debug.Log("raise onsceneready event");
 
 		_inputReader.EnableGameplayInput();
 		_onSceneReady.RaiseEvent(); // Spawn system will spawn the player in a gameplay scene

@@ -546,7 +546,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1553056, y: 1}
+    m_SensorSize: {x: 2.179451, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -777,6 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b33c60d2a0239b4dbd2de267c2a1ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spaceSkybox: {fileID: 8073901800324882111}
 --- !u!1001 &6409993226197399356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -958,6 +959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skybox_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1590788438504418, guid: 4f8a9c0e3cf3a4b41958b179708315a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4643880453313460, guid: 4f8a9c0e3cf3a4b41958b179708315a7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1016,6 +1021,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f8a9c0e3cf3a4b41958b179708315a7, type: 3}
+--- !u!1 &8073901800324882111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1590788438504418, guid: 4f8a9c0e3cf3a4b41958b179708315a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8073234739362426205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8077658574278819561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4643880453313460, guid: 4f8a9c0e3cf3a4b41958b179708315a7,
