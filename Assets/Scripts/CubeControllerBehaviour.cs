@@ -4,6 +4,7 @@ using PathCreation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // IUpdateItem is in UIBehaviour in starfox ex.
 public class CubeControllerBehaviour : MonoBehaviour, IDamagable, IUpgradeItem
@@ -11,6 +12,9 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable, IUpgradeItem
     [Header("Cube Settings")]
     public PlayerData data;
     public InputReader inputReader;
+
+    [Header("UI")]
+    public Slider healthSlider;
 
     [Header("Physics")]
     public Rigidbody _rigidbody;
@@ -317,6 +321,7 @@ public class CubeControllerBehaviour : MonoBehaviour, IDamagable, IUpgradeItem
         inputReader.isDamageEffect = true;
         data.lifeAmount -= damage;
         inputReader.OnUpdateHP();
+        healthSlider.value = data.lifeAmount;
 
         _playerModel.DOShakeRotation(.5f, 40);
 

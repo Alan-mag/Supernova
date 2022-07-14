@@ -41,21 +41,21 @@ public class SceneLoader : MonoBehaviour
 	{
 		_loadLocation.OnLoadingRequested += LoadLocation;
 		_loadMenu.OnLoadingRequested += LoadMenu;
-#if UNITY_EDITOR
+ #if UNITY_EDITOR
 		_coldStartupLocation.OnLoadingRequested += LocationColdStartup;
-#endif
+ #endif
 	}
 
 	private void OnDisable()
 	{
 		_loadLocation.OnLoadingRequested -= LoadLocation;
 		_loadMenu.OnLoadingRequested -= LoadMenu;
-#if UNITY_EDITOR
+ #if UNITY_EDITOR
 		_coldStartupLocation.OnLoadingRequested -= LocationColdStartup;
-#endif
+ #endif
 	}
 
-#if UNITY_EDITOR
+ #if UNITY_EDITOR
 	/// <summary>
 	/// This special loading function is only used in the editor, when the developer presses Play in a Location scene, without passing by Initialisation.
 	/// </summary>
@@ -74,7 +74,7 @@ public class SceneLoader : MonoBehaviour
 			StartGameplay();
 		}
 	}
-#endif
+ #endif
 
 	/// <summary>
 	/// This function loads the location scenes passed as array parameter
@@ -91,7 +91,7 @@ public class SceneLoader : MonoBehaviour
 
 		//In case we are coming from the main menu, we need to load the Gameplay manager scene first
 		// TODO: implement this later
-		/*if (_gameplayManagerSceneInstance.Scene == null
+		if (_gameplayManagerSceneInstance.Scene == null
 			|| !_gameplayManagerSceneInstance.Scene.isLoaded)
 		{
 			_gameplayManagerLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
@@ -100,9 +100,9 @@ public class SceneLoader : MonoBehaviour
 		else
 		{
 			StartCoroutine(UnloadPreviousScene());
-		}*/
+		}
 		// temp
-		StartCoroutine(UnloadPreviousScene());
+		// StartCoroutine(UnloadPreviousScene());
 	}
 
 	private void OnGameplayManagersLoaded(AsyncOperationHandle<SceneInstance> obj)
@@ -163,7 +163,7 @@ public class SceneLoader : MonoBehaviour
 				//Unload the scene through its AssetReference, i.e. through the Addressable system
 				_currentlyLoadedScene.sceneReference.UnLoadScene(); //todo: is this broken if I don't have addressable system working?
 			}
-#if UNITY_EDITOR
+ #if UNITY_EDITOR
 			else
 			{
 				//Only used when, after a "cold start", the player moves to a new scene
@@ -171,7 +171,7 @@ public class SceneLoader : MonoBehaviour
 				//the scene needs to be unloaded using regular SceneManager instead of as an Addressable
 				SceneManager.UnloadSceneAsync(_currentlyLoadedScene.sceneReference.editorAsset.name);
 			}
-#endif
+ #endif
 		}
 
 		LoadNewScene();

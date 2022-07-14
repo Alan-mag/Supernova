@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
   m_DefaultGroup: b187c1209af5aea49b2ff8a708e5c3cb
+  m_CachedHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -21,6 +24,7 @@ MonoBehaviour:
   m_IgnoreUnsupportedFilesInBuild: 0
   m_UniqueBundleIds: 0
   m_NonRecursiveBuilding: 0
+  m_CCDEnabled: 0
   m_maxConcurrentWebRequests: 500
   m_ContiguousBundles: 0
   m_StripUnityVersionFromBundleBuild: 0
@@ -34,12 +38,14 @@ MonoBehaviour:
   m_RemoteCatalogLoadPath:
     m_Id: 
   m_ContentStateBuildPath: 
+  m_BuildAddressablesWithPlayerBuild: 2
   m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: 9c1c49af171f8ad4a80e43d23268e51c, type: 2}
   - {fileID: 11400000, guid: 3697d30574a58aa46befe00d84ec9793, type: 2}
   - {fileID: 11400000, guid: dfc27f659eee34047883c887626a2444, type: 2}
   - {fileID: 11400000, guid: 2a7792b4011b2034498616a9d98c22a4, type: 2}
+  - {fileID: 11400000, guid: af6f26afcf4b1a5408b156bf307a1cc6, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -81,6 +87,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - Locale
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 6b5e917095f416745ab51f0246c85058, type: 2}
