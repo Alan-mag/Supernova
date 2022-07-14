@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c13c0458635fa14ca5fae3d56b75dea, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  lifeAmount: 100
+  lifeAmount: 80
   buffAmount: 100
   shipState: 0
   acrobaticState: 0

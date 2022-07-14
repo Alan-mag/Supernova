@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5e68eead76e4d4bb2b63f00ea9a60c, type: 3}
   m_Name: LevelObjectiveChannel
   m_EditorClassIdentifier: 
-  description: 
+  description: Event raised when a level objective game object triggers it. Being
+    listened to by LevelObjectiveManager in the level.
