@@ -9777,7 +9777,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6489229354287390796}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6489229352681283911
 MeshFilter:
@@ -14898,7 +14898,7 @@ Transform:
   - {fileID: 6489229353310838769}
   - {fileID: 6489229354744935935}
   m_Father: {fileID: 6489229354287390796}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6489229353310838768
 GameObject:
@@ -15049,7 +15049,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6489229354287390796}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -20, y: 0, z: 0}
 --- !u!33 &6489229353414952091
 MeshFilter:
@@ -15178,7 +15178,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6489229354287390796}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -20, y: 0, z: 0}
 --- !u!33 &6489229353609993432
 MeshFilter:
@@ -15274,7 +15274,7 @@ Transform:
   - {fileID: 6489229353406606073}
   - {fileID: 6489229354389404327}
   m_Father: {fileID: 6489229354287390796}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6489229353801088294
 GameObject:
@@ -15306,7 +15306,7 @@ Transform:
   m_Children:
   - {fileID: 6489229353924525485}
   m_Father: {fileID: 6489229354287390796}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6489229353878340527
 GameObject:
@@ -15578,6 +15578,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2895880658188830190}
   - {fileID: 4199151932946370122}
   - {fileID: 6489229353609993437}
   - {fileID: 6489229353414952088}
@@ -15769,6 +15770,85 @@ Transform:
   m_Father: {fileID: 6489229353134149521}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2900153871284941572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6489229354287390796}
+    m_Modifications:
+    - target: {fileID: 1824972043381806, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_Name
+      value: StarSparrow61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824972043381806, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.26666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 38b63c01674358b448b15ee3a56538f5, type: 3}
+--- !u!4 &2895880658188830190 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4317271542249194, guid: 38b63c01674358b448b15ee3a56538f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2900153871284941572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4199759671263109584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15780,9 +15860,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarSparrow6
       objectReference: {fileID: 0}
+    - target: {fileID: 1734771206656390, guid: 33942a27e06a55e498652847d7d15f99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4197128655073178, guid: 33942a27e06a55e498652847d7d15f99, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4197128655073178, guid: 33942a27e06a55e498652847d7d15f99, type: 3}
       propertyPath: m_LocalScale.x

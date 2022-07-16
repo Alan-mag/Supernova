@@ -25,6 +25,7 @@ public class LevelObjectiveManager : MonoBehaviour
         if (currentlyDestroyed >= objectivesTillCompleted)
         {
             Debug.Log("Level over");
+            this.GetComponentInChildren<SceneChange>().LoadGameplayScene();
         }
     }
 }

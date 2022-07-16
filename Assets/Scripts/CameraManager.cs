@@ -11,17 +11,27 @@ public class CameraManager : MonoBehaviour
     static CinemachineVirtualCamera[] vCams;
     [SerializeField] private TransformEventChannelSO _playerInstantiatedChannel = default;
 
+    private GameObject mCam;
+
     void Awake()
     {
-        mainCamera = GameObject.FindGameObjectWithTag("BrainCamera").GetComponent<Camera>();
-        brainVCam = mainCamera.GetComponent<CinemachineBrain>();
+        /*mCam = GameObject.FindGameObjectWithTag("BrainCamera");
+
+        if (!mCam)
+            GameObject.FindGameObjectWithTag("MainCamera");
+
+        mainCamera = mCam.GetComponent<Camera>();
+
+        brainVCam = mainCamera.GetComponent<CinemachineBrain>();*/
        //  vCams = FindObjectsOfType<CinemachineVirtualCamera>(); // todo: This should be triggered after 'Gameplay' prefab is instantiated --> otherwise somersult and other cams won't be picked up 'PlayerInstantiated-channel'
         _playerInstantiatedChannel.OnEventRaised += SetVCamList;
+        _playerInstantiatedChannel.OnEventRaised += SetMainCamera;
     }
 
     void OnDestroy()
     {
         _playerInstantiatedChannel.OnEventRaised -= SetVCamList;
+        _playerInstantiatedChannel.OnEventRaised -= SetMainCamera;
     }
 
     public static void SetUpdateMethod(CinemachineBrain.UpdateMethod method)
@@ -32,6 +42,18 @@ public class CameraManager : MonoBehaviour
     public void SetVCamList(Transform playerTransform)
     {
         vCams = FindObjectsOfType<CinemachineVirtualCamera>(); // todo: This should be triggered after 'Gameplay' prefab is instantiated --> otherwise somersult and other cams won't be picked up 'PlayerInstantiated-channel'
+    }
+
+    public void SetMainCamera(Transform playerTransform)
+    {
+        mCam = GameObject.FindGameObjectWithTag("BrainCamera");
+
+        if (!mCam)
+            mCam = GameObject.FindGameObjectWithTag("MainCamera");
+
+        mainCamera = mCam.GetComponent<Camera>();
+
+        brainVCam = mainCamera.GetComponent<CinemachineBrain>();
     }
 
     public static void SetLiveCamera(string tag)
