@@ -6,6 +6,10 @@
     <type fullname="AudioCueSO" preserve="all" />
     <type fullname="AudioManager" preserve="all" />
     <type fullname="CameraManager" preserve="all" />
+    <type fullname="ClawChargingActionSO" preserve="all" />
+    <type fullname="ClawFacePlayerSO" preserve="all" />
+    <type fullname="ClawStopChargingActionSO" preserve="all" />
+    <type fullname="ClawTurretChargeActionSO" preserve="all" />
     <type fullname="ClickToPlaceHelper" preserve="all" />
     <type fullname="CubeControllerBehaviour" preserve="all" />
     <type fullname="CubeWeaponBehaviour" preserve="all" />
@@ -21,11 +25,14 @@
     <type fullname="EnemyPathCap" preserve="all" />
     <type fullname="EnemyShipCap" preserve="all" />
     <type fullname="EnemyWeaponScript" preserve="all" />
+    <type fullname="FinishedChargingSO" preserve="all" />
     <type fullname="GameplayObject" preserve="all" />
     <type fullname="GameplaySO" preserve="all" />
     <type fullname="GameStateSO" preserve="all" />
     <type fullname="InputReader" preserve="all" />
     <type fullname="IntEventChannelSO" preserve="all" />
+    <type fullname="IsChargingSO" preserve="all" />
+    <type fullname="IsTargetingSO" preserve="all" />
     <type fullname="LevelObjectiveManager" preserve="all" />
     <type fullname="LevelObjectiveObject" preserve="all" />
     <type fullname="LevelSelectHandler" preserve="all" />
@@ -36,6 +43,7 @@
     <type fullname="MenuSO" preserve="all" />
     <type fullname="MusicPlayer" preserve="all" />
     <type fullname="ParticleColliderCube" preserve="all" />
+    <type fullname="PersistentManagersSO" preserve="all" />
     <type fullname="PlayableDirectorChannelSO" preserve="all" />
     <type fullname="Player" preserve="all" />
     <type fullname="PlayerData" preserve="all" />
@@ -56,11 +64,11 @@
     <type fullname="UIMenuManager" preserve="all" />
     <type fullname="VoidEventChannelSO" preserve="all" />
     <type fullname="WormAI" preserve="all" />
-    <type fullname="AudioClipsGroup" preserve="nothing" serialized="true" />
     <type fullname="CameraEvent" preserve="nothing" serialized="true" />
     <type fullname="EffectEvent" preserve="nothing" serialized="true" />
     <type fullname="ParticleEvent" preserve="nothing" serialized="true" />
     <type fullname="Subtitle" preserve="nothing" serialized="true" />
+    <type fullname="AudioClipsGroup" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Cinemachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Cinemachine.CinemachineBasicMultiChannelPerlin" preserve="all" />
@@ -95,6 +103,12 @@
     <type fullname="PathCreation.BezierPath" preserve="nothing" serialized="true" />
     <type fullname="PathCreation.PathCreatorData" preserve="nothing" serialized="true" />
   </assembly>
+  <assembly fullname="Supernova.StateMachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Supernova.StateMachine.ScriptableObjects.StateSO" preserve="all" />
+    <type fullname="Supernova.StateMachine.ScriptableObjects.TransitionTableSO" preserve="all" />
+    <type fullname="Supernova.StateMachine.ScriptableObjects.TransitionTableSO/ConditionUsage" preserve="nothing" serialized="true" />
+    <type fullname="Supernova.StateMachine.ScriptableObjects.TransitionTableSO/TransitionItem" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
     <type fullname="UnityEngine.AddressableAssets.AssetReference" preserve="nothing" serialized="true" />
@@ -109,11 +123,11 @@
   </assembly>
   <assembly fullname="Unity.Localization, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Localization.Locale" preserve="all" />
+    <type fullname="UnityEngine.Localization.LocaleIdentifier" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.Metadata.MetadataCollection" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.LocalizedString" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.Tables.TableEntryReference" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.Tables.TableReference" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Localization.LocaleIdentifier" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Localization.Metadata.MetadataCollection" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Rendering.Volume" preserve="all" />

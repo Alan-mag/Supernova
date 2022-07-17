@@ -53,14 +53,6 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Test/CutsceneExample.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 53e6bad11dd7b3c499f1b9f7e0c66e62
-    m_Address: Assets/Scenes/Locations/Level1.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 796f0762fc1de9045af1d5d8ed924d7c
-    m_Address: Assets/Scenes/Cutscenes/Level1CutsceneEnd.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a34ecab084bb2794ca64861d1a4551be, type: 2}
   m_SchemaSet:
